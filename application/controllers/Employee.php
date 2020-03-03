@@ -11,43 +11,19 @@ class Employee extends CI_Controller
 
 	public function getEmployees()
 	{
+		$data = self::getData();
+		echo $data; exit;
+	}
 
-		$arr = [
-			"data" => [
-				[
-
-					"DT_RowId" => "row_1",
-					"first_name" => "Tiger",
-					"last_name" => "Nixon",
-					"position" => "System Architect",
-					"email" => "t.nixon@datatables.net",
-					"office" => "Edinburgh",
-					"extn" => "5421",
-					"age" => "61",
-					"salary" => "320800",
-					"start_date" => "2011-04-25"
-				],
-				[
-					"DT_RowId" => "row_2",
-					"first_name" => "Garrett",
-					"last_name" => "Winters",
-					"position" => "Accountant",
-					"email" => "g.winters@datatables.net",
-					"office" => "Tokyo",
-					"extn" => "8422",
-					"age" => "63",
-					"salary" => "170750",
-					"start_date" => "2011-07-25"
-				]
-			]
-		];
-		echo  json_encode($arr);
-		exit;
+	public function getData()
+	{
+		return file_get_contents('application\emp.json', true);
 	}
 
 	public function editEmployees()
 	{
-		$data = $this->input->post('data')[0];
+
+		$data = $this->input->post('data');
 		$data['DT_RowId'] = random_int(50,100);
 		$arr = [
 			"data" =>[$data]
