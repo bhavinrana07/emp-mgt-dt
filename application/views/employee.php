@@ -3,7 +3,7 @@
 <body>
 
 	<div id="container">
-		<h1>Welcome to CodeIgniter!</h1>
+		<h1>Datatable for CRUD with codeignitor!</h1>
 
 		<div id="body">
 		<table id="example" class="display" style="width:100%">
